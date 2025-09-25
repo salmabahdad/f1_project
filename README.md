@@ -1,1 +1,1 @@
-# f1_project_draft
+# 🏎️ F1 Pitstop Strategy AI
