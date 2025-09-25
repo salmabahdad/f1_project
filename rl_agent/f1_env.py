@@ -45,32 +45,32 @@ class F1PitstopEnv(gym.Env):
 
     def step(self, action):
      
-    # ✅ Get current features
+    # Get current features
      rain = self.df.loc[self.current_step, "Rainfall_True"]
      safety_car = self.df.loc[self.current_step, "IsSafetyCar_0"]
      fresh_tyre = self.df.loc[self.current_step, "FreshTyre_True"]
      true_action = self.df.loc[self.current_step, "PitNextLap"]
 
-    # 1️⃣ Base imitation reward
+    #Base imitation reward
      reward = 1 if action == true_action else -1 
    
-    # 2️⃣ Rain logic
+    # Rain logic
      if rain == 1 and action == 1:
         reward += 3   # smart to pit when rain starts
      if rain == 1 and action == 0:
         reward -= 3   # ignoring rain is bad
 
-    # 3️⃣ Safety Car logic
+    #Safety Car logic
      if safety_car == 1 and action == 1:
         reward += 2   # good timing to pit
      if safety_car == 0 and action == 1:
         reward -= 1   # bad timing under green flag
 
-    # 4️⃣ Fresh Tyre logic
+    # Fresh Tyre logic
      if fresh_tyre == 1 and action == 1:
         reward -= 2   # unnecessary pit
 
-    # 5️⃣ Advance step
+    # 5️Advance step
      self.current_step += 1
      terminated = self.current_step >= len(self.df) - 1
      truncated = False
