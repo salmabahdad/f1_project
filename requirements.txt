@@ -1,0 +1,26 @@
+# Core
+numpy
+pandas
+scikit-learn
+
+# Gradient Boosting models
+lightgbm
+xgboost
+
+# Imbalanced data
+imblearn
+
+# Visualization
+matplotlib
+seaborn
+
+# Machine Learning utils
+joblib
+
+# Reinforcement Learning
+stable-baselines3
+gym==0.26.2
+gymnasium  # si tu veux tester la nouvelle version
+
+# Deep Learning (nécessaire pour stable-baselines3 si tu veux GPU)
+torch
