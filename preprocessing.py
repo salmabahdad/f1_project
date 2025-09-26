@@ -137,12 +137,12 @@ def prepare_data(laps):
 
         
         df.to_csv("F1_ALL_RACES.csv", index=False)
-        print("✅ Données pré-traitées sauvegardées dans F1_ALL_RACES.csv")
+        print(" Données pré-traitées sauvegardées dans F1_ALL_RACES.csv")
 
       
 
     else:
-        print("✅ Fichier trouvé, chargement direct...")
+        print(" Fichier trouvé, chargement direct...")
         df = pd.read_csv("F1_ALL_RACES.csv")
 
   
